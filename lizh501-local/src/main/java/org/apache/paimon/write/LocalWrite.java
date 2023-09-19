@@ -127,5 +127,6 @@ public class LocalWrite {
         env.executeSql("INSERT INTO user_info_20230807 SELECT * FROM InputTable");
 
 
+
     }
 }

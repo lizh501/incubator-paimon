@@ -39,4 +39,5 @@ public class ClickSource implements SourceFunction<Row> {
     public void cancel() {
         running=false;
     }
+
 }

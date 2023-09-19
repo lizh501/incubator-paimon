@@ -56,4 +56,5 @@ public class LocalRead {
 
         env.executeSql("insert into print_table select * from user_info_20230807;");
     }
+
 }
