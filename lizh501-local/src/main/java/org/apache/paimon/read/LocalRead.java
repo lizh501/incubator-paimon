@@ -31,6 +31,8 @@ public class LocalRead {
         // conf.setString("sql-client.execution.result-mode", "tableau");
         // conf.setString("execution.runtime-mode", "batch");
 
+        conf.setString("table.exec.sink.upsert-materialize", "NONE");
+
         TableEnvironment env = TableEnvironment.create(conf);
 
         env.executeSql(
@@ -52,6 +54,6 @@ public class LocalRead {
                         + "  'connector' = 'print'\n"
                         + ");");
 
-        env.executeSql("insert into print_table select * from user_info_20230627;");
+        env.executeSql("insert into print_table select * from user_info_20230807;");
     }
 }
