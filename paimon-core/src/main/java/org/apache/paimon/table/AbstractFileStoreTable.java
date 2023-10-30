@@ -260,7 +260,7 @@ public abstract class AbstractFileStoreTable implements FileStoreTable {
                 coreOptions().writeOnly() ? null : store().newTagCreationManager(),
                 catalogEnvironment.lockFactory().create(),
                 CoreOptions.fromMap(options()).consumerExpireTime(),
-                new ConsumerManager(fileIO, path),
+                new ConsumerManager(fileIO, path, coreOptions().snapshotExpireLimit()),
                 coreOptions().snapshotExpireExecutionMode(),
                 name());
     }

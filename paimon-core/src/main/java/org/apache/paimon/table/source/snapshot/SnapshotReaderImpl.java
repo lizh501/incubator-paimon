@@ -85,7 +85,7 @@ public class SnapshotReaderImpl implements SnapshotReader {
         this.options = options;
         this.snapshotManager = snapshotManager;
         this.consumerManager =
-                new ConsumerManager(snapshotManager.fileIO(), snapshotManager.tablePath());
+                new ConsumerManager(snapshotManager.fileIO(), snapshotManager.tablePath(), coreOptions().snapshotExpireLimit());
         this.splitGenerator = splitGenerator;
         this.nonPartitionFilterConsumer = nonPartitionFilterConsumer;
         this.defaultValueAssigner = defaultValueAssigner;

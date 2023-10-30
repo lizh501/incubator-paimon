@@ -43,7 +43,7 @@ public class ConsumerManagerTest {
     public void before() {
         this.manager =
                 new ConsumerManager(
-                        LocalFileIO.create(), new org.apache.paimon.fs.Path(tempDir.toUri()));
+                        LocalFileIO.create(), new org.apache.paimon.fs.Path(tempDir.toUri()), coreOptions().snapshotExpireLimit());
     }
 
     @Test

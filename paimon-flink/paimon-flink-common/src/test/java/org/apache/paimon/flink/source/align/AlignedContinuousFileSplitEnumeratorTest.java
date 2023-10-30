@@ -189,7 +189,7 @@ public class AlignedContinuousFileSplitEnumeratorTest {
         }
         enumerator.addSplits(splits);
 
-        ConsumerManager consumerManager = new ConsumerManager(table.fileIO(), table.location());
+        ConsumerManager consumerManager = new ConsumerManager(table.fileIO(), table.location(), coreOptions().snapshotExpireLimit());
         assertThat(consumerManager.consumer(CONSUMER_ID)).isEmpty();
 
         enumerator.handleSplitRequest(0, "test-host");

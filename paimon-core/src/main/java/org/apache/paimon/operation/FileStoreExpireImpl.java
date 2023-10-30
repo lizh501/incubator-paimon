@@ -70,7 +70,8 @@ public class FileStoreExpireImpl implements FileStoreExpire {
             SnapshotManager snapshotManager,
             SnapshotDeletion snapshotDeletion,
             TagManager tagManager,
-            int expireLimit) {
+            int expireLimit,
+            int i) {
         Preconditions.checkArgument(
                 numRetainedMin >= 1,
                 "The minimum number of completed snapshots to retain should be >= 1.");
@@ -85,7 +86,7 @@ public class FileStoreExpireImpl implements FileStoreExpire {
         this.millisRetained = millisRetained;
         this.snapshotManager = snapshotManager;
         this.consumerManager =
-                new ConsumerManager(snapshotManager.fileIO(), snapshotManager.tablePath());
+                new ConsumerManager(snapshotManager.fileIO(), snapshotManager.tablePath(), i);
         this.snapshotDeletion = snapshotDeletion;
         this.tagManager = tagManager;
         this.expireLimit = expireLimit;

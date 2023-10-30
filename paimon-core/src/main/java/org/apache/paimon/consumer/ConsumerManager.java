@@ -49,7 +49,7 @@ public class ConsumerManager implements Serializable {
     private final FileIO fileIO;
     private final Path tablePath;
 
-    public ConsumerManager(FileIO fileIO, Path tablePath) {
+    public ConsumerManager(FileIO fileIO, Path tablePath, int i) {
         this.fileIO = fileIO;
         this.tablePath = tablePath;
     }

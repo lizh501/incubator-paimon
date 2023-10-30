@@ -134,7 +134,7 @@ public class ConsumersTable implements ReadonlyTable {
 
         @Override
         public long rowCount() {
-            return new ConsumerManager(fileIO, location).listAllIds().size();
+            return new ConsumerManager(fileIO, location, coreOptions().snapshotExpireLimit()).listAllIds().size();
         }
 
         @Override
@@ -187,7 +187,7 @@ public class ConsumersTable implements ReadonlyTable {
                 throw new IllegalArgumentException("Unsupported split: " + split.getClass());
             }
             Path location = ((ConsumersTable.ConsumersSplit) split).location;
-            Map<String, Long> consumers = new ConsumerManager(fileIO, location).consumers();
+            Map<String, Long> consumers = new ConsumerManager(fileIO, location, coreOptions().snapshotExpireLimit()).consumers();
             Iterator<InternalRow> rows =
                     Iterators.transform(consumers.entrySet().iterator(), this::toRow);
             if (projection != null) {

@@ -18,8 +18,10 @@
 
 package org.apache.paimon.consumer;
 
+import org.apache.paimon.CoreOptions;
 import org.apache.paimon.fs.FileIO;
 import org.apache.paimon.fs.Path;
+import org.apache.paimon.schema.TableSchema;
 import org.apache.paimon.utils.JsonSerdeUtil;
 
 import org.apache.paimon.shade.jackson2.com.fasterxml.jackson.annotation.JsonCreator;
@@ -33,7 +35,6 @@ import java.util.concurrent.TimeUnit;
 public class Consumer {
 
     private static final String FIELD_NEXT_SNAPSHOT = "nextSnapshot";
-
     private static final int READ_CONSUMER_RETRY_NUM = 3;
     private static final int READ_CONSUMER_RETRY_INTERVAL = 100;
 

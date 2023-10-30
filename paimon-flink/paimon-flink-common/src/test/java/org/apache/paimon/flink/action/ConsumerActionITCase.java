@@ -75,7 +75,7 @@ public class ConsumerActionITCase extends ActionITCaseBase {
                                 changelogRow("+I", 3L, "Paimon")))
                 .close();
 
-        ConsumerManager consumerManager = new ConsumerManager(table.fileIO(), table.location());
+        ConsumerManager consumerManager = new ConsumerManager(table.fileIO(), table.location(), coreOptions().snapshotExpireLimit());
         Optional<Consumer> consumer1 = consumerManager.consumer("myid");
         assertThat(consumer1).isPresent();
         assertThat(consumer1.get().nextSnapshot()).isEqualTo(4);
