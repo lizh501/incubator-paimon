@@ -67,6 +67,7 @@ under the License.
         <module>paimon-spark</module>
         <module>paimon-test-utils</module>
         <module>tools/ci/paimon-ci-tools</module>
+        <module>lizh501-local</module>
     </modules>
 
     <properties>
